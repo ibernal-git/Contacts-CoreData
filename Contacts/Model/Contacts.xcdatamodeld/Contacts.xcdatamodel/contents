@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Contacts" representedClassName="Contacts" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emails" inverseName="parentContact" inverseEntity="Emails"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notes" inverseName="parentContact" inverseEntity="Notes"/>
+        <relationship name="phones" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Phones" inverseName="parentContact" inverseEntity="Phones"/>
+    </entity>
+    <entity name="Emails" representedClassName="Emails" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <relationship name="parentContact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacts" inverseName="emails" inverseEntity="Contacts"/>
+    </entity>
+    <entity name="Notes" representedClassName="Notes" syncable="YES" codeGenerationType="class">
+        <attribute name="newNote" optional="YES" attributeType="String"/>
+        <relationship name="parentContact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacts" inverseName="notes" inverseEntity="Contacts"/>
+    </entity>
+    <entity name="Phones" representedClassName="Phones" syncable="YES" codeGenerationType="class">
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <relationship name="parentContact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacts" inverseName="phones" inverseEntity="Contacts"/>
+    </entity>
+    <elements>
+        <element name="Contacts" positionX="-9919.78515625" positionY="-404.19140625" width="128" height="103"/>
+        <element name="Emails" positionX="-10109.171875" positionY="-388.953125" width="128" height="73"/>
+        <element name="Notes" positionX="-9664.34375" positionY="-389.78125" width="128" height="73"/>
+        <element name="Phones" positionX="-9918.37109375" positionY="-228.265625" width="128" height="73"/>
+    </elements>
+</model>
