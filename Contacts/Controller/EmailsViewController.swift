@@ -9,10 +9,9 @@
 import UIKit
 import CoreData
 
-class EmailsViewController: UITableViewController, DataManagerDelegate {
+class EmailsViewController: ContactsSuperClass, DataManagerDelegate {
     
     var selectedContact : Contacts?
-    let dataManager = DataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +49,7 @@ class EmailsViewController: UITableViewController, DataManagerDelegate {
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
-        let alert = dataManager.addNewElement(for: K.addButton.emails)
+        let alert = super.addNewElement(for: K.addButton.emails)
         present(alert, animated: true, completion: nil)
         
     }

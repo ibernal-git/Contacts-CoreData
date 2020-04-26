@@ -9,9 +9,7 @@
 import UIKit
 import CoreData
 
-class ContactsViewController: UITableViewController, DataManagerDelegate {
-
-    let dataManager = DataManager()
+class ContactsViewController: ContactsSuperClass, DataManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +57,8 @@ class ContactsViewController: UITableViewController, DataManagerDelegate {
     //MARK: - Add Button
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        let alert = dataManager.addNewElement(for: K.addButton.contacts)
+        
+        let alert = super.addNewElement(for: K.addButton.contacts)
         present(alert, animated: true, completion: nil)
 
     }

@@ -9,10 +9,9 @@
 import UIKit
 import CoreData
 
-class NotesViewController: UITableViewController, DataManagerDelegate {
+class NotesViewController: ContactsSuperClass, DataManagerDelegate {
 
     var selectedContact : Contacts?
-    let dataManager = DataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +48,7 @@ class NotesViewController: UITableViewController, DataManagerDelegate {
     }
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
-        let alert = dataManager.addNewElement(for: K.addButton.notes)
+        let alert = super.addNewElement(for: K.addButton.notes)
         present(alert, animated: true, completion: nil)
         
     }
